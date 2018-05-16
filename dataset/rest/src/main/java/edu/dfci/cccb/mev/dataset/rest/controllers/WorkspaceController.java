@@ -35,9 +35,9 @@ import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.refine.ProjectMetadata;
-import com.google.refine.io.FileProjectManager;
-import com.google.refine.model.Project;
+//import com.google.refine.ProjectMetadata;
+//import com.google.refine.io.FileProjectManager;
+//import com.google.refine.model.Project;
 import edu.dfci.cccb.mev.dataset.domain.contract.*;
 import edu.dfci.cccb.mev.dataset.domain.fs.DatasetBuilderFlatFile;
 import edu.dfci.cccb.mev.dataset.domain.fs.IFlatFileValues;
@@ -79,7 +79,7 @@ public class WorkspaceController {
   private @Getter @Setter @Inject Workspace workspace;
   private @Getter @Setter @Inject DatasetBuilder builder;
   private @Inject @Named("RestJsonObjectMapper") ObjectMapper mapper;
-  private @Inject FileProjectManager projectManager;
+//  private @Inject FileProjectManager projectManager;
   @RequestMapping (value = "/dataset", method = GET)
   public List<String> list () {
     return workspace.list ();
@@ -98,13 +98,13 @@ public class WorkspaceController {
 
     private void importAnnotations(File file) throws IOException {
         try(FileInputStream fin = new FileInputStream(file)){
-            long projectId = Project.generateID();
-            projectManager.save(true);
-            projectManager.importProject(projectId, fin, true);
-            projectManager.loadProjectMetadata(projectId);
-            ProjectMetadata pm = projectManager.getProjectMetadata(projectId);
-            pm.updateModified();
-            projectManager.save(true);
+//            long projectId = Project.generateID();
+            //projectManager.save(true);
+//            projectManager.importProject(projectId, fin, true);
+//            projectManager.loadProjectMetadata(projectId);
+//            ProjectMetadata pm = projectManager.getProjectMetadata(projectId);
+//            pm.updateModified();
+//            projectManager.save(true);
         }
     }
 
@@ -165,18 +165,18 @@ public class WorkspaceController {
 
     private void zipAnnotations(String name, String dimension, ZipOutputStream zout) throws DatasetNotFoundException, IOException {
         Dataset dataset = workspace.get(name);
-        long projectId = projectManager.getProjectID (dataset.name () + dimension);
-        if(projectId > -1){
-            File annotations = new TemporaryFile();
-            GZIPOutputStream gos = new GZIPOutputStream(new FileOutputStream(annotations));
-            TarOutputStream tos = new TarOutputStream(gos);
-            projectManager.exportProject(projectId, tos);
-            tos.flush();
-            tos.close();
-            zout.putNextEntry(new ZipEntry(String.format("annotations_%s.tar.gz", dimension)));
-            IOUtils.copy(new FileInputStream(annotations), zout);
-            zout.closeEntry();
-        }
+//        long projectId = projectManager.getProjectID (dataset.name () + dimension);
+//        if(projectId > -1){
+//            File annotations = new TemporaryFile();
+//            GZIPOutputStream gos = new GZIPOutputStream(new FileOutputStream(annotations));
+//            TarOutputStream tos = new TarOutputStream(gos);
+//            projectManager.exportProject(projectId, tos);
+//            tos.flush();
+//            tos.close();
+//            zout.putNextEntry(new ZipEntry(String.format("annotations_%s.tar.gz", dimension)));
+//            IOUtils.copy(new FileInputStream(annotations), zout);
+//            zout.closeEntry();
+//        }
     }
 
 

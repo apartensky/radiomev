@@ -59,7 +59,7 @@
     <org.slf4j.version>1.7.2</org.slf4j.version>
     <log4j.version>1.2.17</log4j.version>
     <log4j2.version>2.0-beta9</log4j2.version>
-    <lombok.version>1.12.6</lombok.version>
+    <lombok.version>1.16.10</lombok.version>
     <lambdaj.version>2.3.3</lambdaj.version>
     <spring.version>4.0.3.RELEASE</spring.version>
     <jackson.version>2.2.2</jackson.version>
@@ -96,6 +96,7 @@
       </activation>
       <properties>
         <mev.spring_profiles_active>embedded</mev.spring_profiles_active>
+        <MEV_PERSISTENCE_UNIT>mevdb-embedded</MEV_PERSISTENCE_UNIT>
       </properties>
     </profile>
     <profile>
@@ -200,6 +201,13 @@
       <artifactId>log4j</artifactId>
       <version>${log4j.version}</version>
     </dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-1.2-api -->
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-1.2-api</artifactId>
+	    <version>2.7</version>
+	</dependency>
 
     <!-- Code generation -->
 

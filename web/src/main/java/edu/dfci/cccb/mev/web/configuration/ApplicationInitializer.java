@@ -23,12 +23,17 @@ import javax.servlet.http.HttpSessionListener;
 import edu.dfci.cccb.mev.edger.rest.EdgeConfiguration;
 import edu.dfci.cccb.mev.normalization.rest.NormalizationConfiguration;
 import edu.dfci.cccb.mev.wgcna.rest.configuration.WgcnaConfiguration;
+import lombok.extern.log4j.Log4j;
+
+import org.eclipse.jetty.util.log.Log;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import edu.dfci.cccb.mev.annotation.server.configuration.AnnotationServerConfiguration;
-import edu.dfci.cccb.mev.annotation.server.configuration.ProbeAnnotationsConfigurationMain;
+//import edu.dfci.cccb.mev.annotation.server.configuration.AnnotationServerConfiguration;
+//import edu.dfci.cccb.mev.annotation.server.configuration.ProbeAnnotationsConfigurationMain;
 import edu.dfci.cccb.mev.anova.rest.configuration.AnovaRestConfiguration;
 import edu.dfci.cccb.mev.dataset.rest.configuration.DatasetRestConfiguration;
 import edu.dfci.cccb.mev.dataset.rest.configuration.RDispatcherConfiguration;
@@ -44,7 +49,7 @@ import edu.dfci.cccb.mev.limma.rest.configuration.LimmaRestConfiguration;
 import edu.dfci.cccb.mev.nmf.rest.configuration.NmfRestConfiguration;
 import edu.dfci.cccb.mev.pca.rest.configuration.PcaConfiguration;
 import edu.dfci.cccb.mev.pe.rest.configuration.PathwayEnrichmentConfiguration;
-import edu.dfci.cccb.mev.presets.rest.configuration.PresetsRestConfiguration;
+//import edu.dfci.cccb.mev.presets.rest.configuration.PresetsRestConfiguration;
 import edu.dfci.cccb.mev.stats.rest.configuration.StatsRestConfiguration;
 import edu.dfci.cccb.mev.survival.rest.configuration.SurvivalAnalysisConfiguration;
 import edu.dfci.cccb.mev.t_test.rest.configuration.TTestRestConfiguration;
@@ -56,6 +61,7 @@ import edu.dfci.cccb.mev.web.configuration.container.ContainerConfigurations;
  * @author levk
  * 
  */
+@Log4j
 public class ApplicationInitializer implements WebApplicationInitializer {
 
   /* (non-Javadoc)
@@ -65,15 +71,15 @@ public class ApplicationInitializer implements WebApplicationInitializer {
   @Override
   public void onStartup (ServletContext servletContext) throws ServletException {
     AnnotationConfigWebApplicationContext mvcContext = new AnnotationConfigWebApplicationContext ();
-
+    
     mvcContext.register (DispatcherConfiguration.class, PersistenceConfiguration.class, ContainerConfigurations.class);
 
     mvcContext.register (RDispatcherConfiguration.class);
     mvcContext.register (DatasetRestConfiguration.class);
-    mvcContext.register (PresetsRestConfiguration.class);
+//    mvcContext.register (PresetsRestConfiguration.class);
     mvcContext.register (GeoDatasetsConfigurationMain.class);
-    mvcContext.register (ProbeAnnotationsConfigurationMain.class);
-    mvcContext.register (AnnotationServerConfiguration.class);
+//    mvcContext.register (ProbeAnnotationsConfigurationMain.class);
+//    mvcContext.register (AnnotationServerConfiguration.class);
     mvcContext.register (HclRestConfiguration.class);
     mvcContext.register (LimmaRestConfiguration.class);
     mvcContext.register (KMeansRestConfiguration.class);
@@ -112,7 +118,7 @@ public class ApplicationInitializer implements WebApplicationInitializer {
           se.getSession ().setMaxInactiveInterval (interval);
         }
       });
-
+    
     registration.setLoadOnStartup (1);
     registration.addMapping ("/");
   }

@@ -19,6 +19,8 @@ import java.util.Collection;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.springframework.context.Lifecycle;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -32,6 +34,7 @@ import edu.dfci.cccb.mev.web.configuration.converters.ConverterConfigurations;
 import edu.dfci.cccb.mev.web.configuration.injectors.InjectorConfigurations;
 import edu.dfci.cccb.mev.web.configuration.interceptors.WarnOnDeprecatedRequestMappingInterceptor;
 import edu.dfci.cccb.mev.web.configuration.resolvers.ResolverConfigurations;
+import lombok.extern.log4j.Log4j;
 
 /**
  * @author levk
@@ -40,6 +43,7 @@ import edu.dfci.cccb.mev.web.configuration.resolvers.ResolverConfigurations;
 @Configuration
 @EnableWebMvc
 @Import ({ ResolverConfigurations.class, InjectorConfigurations.class, ConverterConfigurations.class })
+@Log4j
 public class DispatcherConfiguration extends WebMvcConfigurerAdapter {
 
   /* (non-Javadoc)
@@ -69,4 +73,33 @@ public class DispatcherConfiguration extends WebMvcConfigurerAdapter {
     for (MevClientConfigurerAdapter clientConfigurer : clientConfigurers)
       clientConfigurer.registerJavascriptInjectors (injectorRegistry);
   }
+  
+//  @Bean
+//  public Lifecycle getLifecyle() {
+//	  return new Lifecycle() {
+//
+//		private boolean isRunning;
+//		@Override
+//		public boolean isRunning() {
+//			return isRunning;
+//		}
+//
+//		@Override
+//		public void start() {
+//			log.info("STARTEDDDDDDD");
+//			System.out.println("******************STARTED LC *******************");
+//			this.isRunning=true;
+//		}
+//
+//		@Override
+//		public void stop() {
+//			log.info("STOPPED");
+//			System.out.println("******************STARTED LC *******************");
+//			this.isRunning=false;
+//			
+//		}
+//		  
+//	  };
+//  }
+  
 }
