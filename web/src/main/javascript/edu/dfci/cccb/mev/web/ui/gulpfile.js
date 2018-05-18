@@ -15,7 +15,7 @@ var defaults = {
     bundlesPath: bundlesPath + "/min"
   },
   buildOptions: {
-    minify: true,
+    minify: false,
     sourceMaps: false,
     watch: false,
     uglifyOptions: {
