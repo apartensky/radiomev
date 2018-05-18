@@ -131,12 +131,13 @@
 
     <!-- Annotation Server -->
 
-    <dependency>
+<!-- 
+   <dependency>
       <groupId>edu.dfci.cccb</groupId>
       <artifactId>mev-annotation-server</artifactId>
       <version>BAYLIE-SNAPSHOT</version>
     </dependency>
-
+-->
     <!-- Hierarchical Clustering Package -->
 
     <dependency>
@@ -202,13 +203,13 @@
     </dependency>
 
     <!-- Presets -->
-
+<!--
     <dependency>
       <groupId>edu.dfci.cccb</groupId>
       <artifactId>mev-presets-rest</artifactId>
       <version>BAYLIE-SNAPSHOT</version>
     </dependency>
-
+-->
     <!-- GEO Datasets -->
 
     <dependency>

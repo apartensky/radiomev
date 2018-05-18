@@ -7,13 +7,13 @@ define([], function(){
 //				templateUrl: "app/views/dataset/_templates/dataset.heatmap.tpl.html",
 //				viewModel: "DatasetHeatmapVMFactory"
 //			};
-			this["GeneSD"] = {
-				name: "GeneSD",
-				launch: {analysisType: "genesd", analysisName: "GeneSD"}
+			this["FeatureSD"] = {
+				name: "FeatureSD",
+				launch: {analysisType: "genesd", analysisName: "FeatureSD"}
 			};
-			this["GeneMAD"] = {
-				name: "GeneMAD",
-				launch: {analysisType: "genemad", analysisName: "GeneMAD"}				
+			this["FeatureMAD"] = {
+				name: "FeatureMAD",
+				launch: {analysisType: "genemad", analysisName: "FeatureMAD"}
 			};
 			this["PCA"] = {
 				name: "PCA",

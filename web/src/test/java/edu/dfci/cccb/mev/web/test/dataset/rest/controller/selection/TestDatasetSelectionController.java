@@ -14,9 +14,9 @@ import java.util.Properties;
 
 import javax.inject.Inject;
 
-import edu.dfci.cccb.mev.annotation.server.configuration.AnnotationProjectManagerConfiguration;
-import edu.dfci.cccb.mev.annotation.server.configuration.AnnotationServerConfiguration;
-import edu.dfci.cccb.mev.presets.rest.configuration.PresetsRestConfiguration;
+//import edu.dfci.cccb.mev.annotation.server.configuration.AnnotationProjectManagerConfiguration;
+//import edu.dfci.cccb.mev.annotation.server.configuration.AnnotationServerConfiguration;
+//import edu.dfci.cccb.mev.presets.rest.configuration.PresetsRestConfiguration;
 import lombok.extern.log4j.Log4j;
 
 import org.junit.Before;
@@ -50,7 +50,7 @@ import edu.dfci.cccb.mev.dataset.domain.contract.Workspace;
 import edu.dfci.cccb.mev.dataset.domain.mock.MockTsvInput;
 import edu.dfci.cccb.mev.dataset.domain.simple.SimpleSelection;
 import edu.dfci.cccb.mev.dataset.rest.configuration.DatasetRestConfiguration;
-import edu.dfci.cccb.mev.test.annotation.server.configuration.ProbeAnnotationsPersistanceConfigTest;
+//import edu.dfci.cccb.mev.test.annotation.server.configuration.ProbeAnnotationsPersistanceConfigTest;
 import edu.dfci.cccb.mev.web.configuration.DispatcherConfiguration;
 import edu.dfci.cccb.mev.web.configuration.PersistenceConfiguration;
 import edu.dfci.cccb.mev.web.configuration.container.ContainerConfigurations;
@@ -61,10 +61,11 @@ import edu.dfci.cccb.mev.web.configuration.container.ContainerConfigurations;
 @ContextConfiguration(classes={DispatcherConfiguration.class, 
                                PersistenceConfiguration.class, 
                                ContainerConfigurations.class, 
-                               DatasetRestConfiguration.class,
-                               AnnotationProjectManagerConfiguration.class,
-                               PresetsRestConfiguration.class,
-                               ProbeAnnotationsPersistanceConfigTest.class})
+                               DatasetRestConfiguration.class
+//                               AnnotationProjectManagerConfiguration.class,
+//                               PresetsRestConfiguration.class,
+//                               ProbeAnnotationsPersistanceConfigTest.class
+})
 public class TestDatasetSelectionController {
 
   @Inject WebApplicationContext applicationContext;

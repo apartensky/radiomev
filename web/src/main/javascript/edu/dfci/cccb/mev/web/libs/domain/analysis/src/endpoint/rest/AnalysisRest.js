@@ -183,7 +183,13 @@ define(["mui", "lodash", "../../events/AnalysisEventBus", "mev-dataset/src/main/
                         if (params.analysisName && params.analysisName.toLowerCase().indexOf(params.analysisType.toLowerCase()) > -1) {
                             //do not prefix analysis name with type - name already contains the type
                         } else if (data.name && data.name.toLowerCase().indexOf(params.analysisType.toLowerCase()) > -1) {
-                            //do not prefix analysis name with type - name already contains the type
+                          //do not prefix analysis name with type - name already contains the type
+                        } else if (data.name && data.name.toLowerCase().indexOf("featuresd")>-1
+                          || data.name && data.name.toLowerCase().indexOf("featuremad")>-1
+                          || params.analysisName && params.analysisName.toLowerCase().indexOf("featuresd")>-1
+                          || params.analysisName && params.analysisName.toLowerCase().indexOf("featuremad")>-1
+                        ){
+                        //hack: do not default dashboard items analyses "FeatureSD" and "FeatureMAD"
                         } else {
                             if (params.analysisName)
                                 params.analysisName = params.analysisType + "_" + params.analysisName;
