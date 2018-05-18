@@ -57,3 +57,5 @@ bkp/
 **node_modules/
 npm-debug.log
 
+#js-bundles
+web/src/main/javascript/edu/dfci/cccb/mev/web/ui/dist/*
