@@ -97,7 +97,7 @@ define(["mui", "lodash", "app/utils/utils"], function(ng,_,utils){ "use strict";
 			});
 
 			var rowSetsNode = createNode(project.dataset.row, {
-				label: "Gene Sets",
+				label: "Feature Sets",
 				state: {
 					name: ".dataset.rowSets", 
 					getParams: function(node){
