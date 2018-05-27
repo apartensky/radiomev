@@ -53,30 +53,31 @@ public class ProjectController {
   private @Inject Provider<Google> google;
   private @Inject Workspace workspace;
   private @Inject DatasetBuilder dsb;
-  @Inject @Named("gcloud-config") Config config;
+//  @Inject @Named("gcloud-config") Config config;
 
-  @RequestMapping (value = "/cccb-projects", method = GET)
-  public List<Project> projects () throws JsonParseException, JsonMappingException, IOException {
-    List<Project> projects = new ArrayList<> ();
-    Set<String> emails = google.get ().plusOperations ().getGoogleProfile ().getEmailAddresses ();
-    Storage s = storage.get();
+//  @RequestMapping (value = "/cccb-projects", method = GET)
+//  public List<Project> projects () throws JsonParseException, JsonMappingException, IOException {
+//    List<Project> projects = new ArrayList<> ();
+//    Set<String> emails = google.get ().plusOperations ().getGoogleProfile ().getEmailAddresses ();
+//    Storage s = storage.get();
+//
+//    for (Iterator<Bucket> i = s.list(Storage.BucketListOption.pageSize(100)).iterateAll(); i.hasNext ();) {
+//      Bucket b = i.next();
+//      try {
+//        for (Acl a : b.getAcl ()) {
+//          Entity e = a.getEntity();
+//          if (e.getType() == Type.USER && emails.contains(((User)e).getEmail()))
+//            projects.add(mapper.readValue(b.get(config.getProperty("gcloud.project.json.filename", "mev.json")).getContent(), Project.class).bucket (b.getName ()));
+//        }
+//      } catch (Exception e) {
+//        log.debug("Skipping bucket " + b.getName());
+//      }
+//    }
+//
+//    return projects;
+//  }
 
-    for (Iterator<Bucket> i = s.list(Storage.BucketListOption.pageSize(100)).iterateAll(); i.hasNext ();) {
-      Bucket b = i.next();
-      try {
-        for (Acl a : b.getAcl ()) {
-          Entity e = a.getEntity();
-          if (e.getType() == Type.USER && emails.contains(((User)e).getEmail()))
-            projects.add(mapper.readValue(b.get(config.getProperty("gcloud.project.json.filename", "mev.json")).getContent(), Project.class).bucket (b.getName ()));
-        }
-      } catch (Exception e) {
-        log.debug("Skipping bucket " + b.getName());
-      }
-    }
-
-    return projects;
-  }
-
+/*
   @RequestMapping (value = "/cccb-projects", method = POST)
   public void load (final @RequestBody List<Project> projects) throws DatasetException, IOException {
     List<String> eligible = new ArrayList<> ();
@@ -122,4 +123,5 @@ public class ProjectController {
             }
           }));
   }
+*/
 }

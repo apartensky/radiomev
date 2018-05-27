@@ -34,15 +34,14 @@ RUN echo 'source("https://bioconductor.org/biocLite.R");' >> /tmp/install_bioc.R
 RUN echo "install.packages (c ('Rserve', 'rafalib', 'amap', 'RProtoBuf', 'jsonlite', 'injectoR', 'WGCNA'));" >> /tmp/install_cran.R \
   && Rscript /tmp/install_cran.R && rm -rf /tmp/* /var/lib/apt/lists/*
 
-EXPOSE 8080
-EXPOSE 6311
-
-ADD topgo /opt/data/topgo/domain/src/main/resources
 RUN rm -rf /usr/local/tomcat/webapps/*
-ADD mev.war /usr/local/tomcat/webapps/ROOT.war
+ADD radiomev.war /usr/local/tomcat/webapps/ROOT.war
 ADD server.xml /usr/local/tomcat/conf/server.xml
 ADD eval.R /opt/eval.R
 ADD run.sh /opt/run.sh
 ADD Rserve.conf /etc/Rserv.conf
+
+EXPOSE 80
+EXPOSE 6311
 
 CMD ["sh", "/opt/run.sh"]

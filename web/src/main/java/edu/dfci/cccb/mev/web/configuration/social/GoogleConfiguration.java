@@ -66,7 +66,6 @@ import edu.dfci.cccb.mev.web.domain.social.UserInterceptor;
  * @author levk
  * 
  */
-@Configuration
 public class GoogleConfiguration extends WebMvcConfigurerAdapter {
 
   private @Value ("${GOOGLE_API_KEY:902321796189-et9joehlsn9agecgt6ooct5ean864g40.apps.googleusercontent.com}") String key;

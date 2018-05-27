@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>mev-web</artifactId>
+  <artifactId>radiomev-web</artifactId>
   <packaging>war</packaging>
 
   <name>MeV Web Application Server</name>
@@ -10,7 +10,7 @@
 
   <parent>
     <groupId>edu.dfci.cccb</groupId>
-    <artifactId>mev</artifactId>
+    <artifactId>radiomev</artifactId>
     <version>BAYLIE-SNAPSHOT</version>
   </parent>
 
@@ -131,13 +131,13 @@
 
     <!-- Annotation Server -->
 
-<!-- 
+ 
    <dependency>
       <groupId>edu.dfci.cccb</groupId>
       <artifactId>mev-annotation-server</artifactId>
       <version>BAYLIE-SNAPSHOT</version>
     </dependency>
--->
+
     <!-- Hierarchical Clustering Package -->
 
     <dependency>

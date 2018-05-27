@@ -32,6 +32,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import edu.dfci.cccb.mev.annotation.server.configuration.AnnotationServerConfiguration;
 //import edu.dfci.cccb.mev.annotation.server.configuration.AnnotationServerConfiguration;
 //import edu.dfci.cccb.mev.annotation.server.configuration.ProbeAnnotationsConfigurationMain;
 import edu.dfci.cccb.mev.anova.rest.configuration.AnovaRestConfiguration;
@@ -79,7 +80,7 @@ public class ApplicationInitializer implements WebApplicationInitializer {
 //    mvcContext.register (PresetsRestConfiguration.class);
     mvcContext.register (GeoDatasetsConfigurationMain.class);
 //    mvcContext.register (ProbeAnnotationsConfigurationMain.class);
-//    mvcContext.register (AnnotationServerConfiguration.class);
+    mvcContext.register (AnnotationServerConfiguration.class);
     mvcContext.register (HclRestConfiguration.class);
     mvcContext.register (LimmaRestConfiguration.class);
     mvcContext.register (KMeansRestConfiguration.class);

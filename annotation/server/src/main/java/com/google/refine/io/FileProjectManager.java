@@ -133,7 +133,7 @@ public class FileProjectManager extends ProjectManager {
   public void setRequestHeatmap (Dataset requestHeatmap) {
     this.dataset = requestHeatmap;
   }
-  @Inject Presets presets;
+//  @Inject Presets presets;
     
   @Override
   public Map<Long, ProjectMetadata> getAllProjectMetadata () {

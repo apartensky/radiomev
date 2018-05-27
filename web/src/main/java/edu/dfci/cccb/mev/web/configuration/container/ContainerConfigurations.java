@@ -41,7 +41,7 @@ import edu.dfci.cccb.mev.web.domain.reflection.spring.SpringReflector;
 @ComponentScan (basePackages = "edu.dfci.cccb.mev.web",
                 excludeFilters = @Filter (type = ANNOTATION, value = Configuration.class),
                 includeFilters = @Filter (type = ANNOTATION, value = { Controller.class, ControllerAdvice.class }))
-@Import (GoogleConfiguration.class)
+//@Import (GoogleConfiguration.class)
 public class ContainerConfigurations extends MevClientConfigurerAdapter {
 
   @Bean

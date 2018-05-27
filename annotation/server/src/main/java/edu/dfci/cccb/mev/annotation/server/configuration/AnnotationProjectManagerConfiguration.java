@@ -29,10 +29,10 @@ public class AnnotationProjectManagerConfiguration extends WebMvcConfigurerAdapt
 
   private @Inject Workspace workspace;
   private @Inject FileProjectManager sessionProjectManager;
-  private @Inject @Named("presets-dataset-builder") PresetDatasetBuilder builder;  
+//  private @Inject @Named("presets-dataset-builder") PresetDatasetBuilder builder;  
   private @Inject org.springframework.core.env.Environment environment;
-  private @Inject ProbeAnnotationPlatforms annotationPlatforms;
-  private @Inject PresetDimensionBuilder dimensionBuilder;
+//  private @Inject ProbeAnnotationPlatforms annotationPlatforms;
+//  private @Inject PresetDimensionBuilder dimensionBuilder;
   
   @Bean
   @Scope (value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
@@ -40,9 +40,9 @@ public class AnnotationProjectManagerConfiguration extends WebMvcConfigurerAdapt
     FileProjectManager projectManager = new FileProjectManager ();
     projectManager.setWorkspaceDir (new SessionWorkspaceDir ());
     projectManager.setWorkspace (workspace);
-    projectManager.setDatasetBuilder (builder);
-    projectManager.setDimensionBuilder (dimensionBuilder);
-    projectManager.setProbeAnnotationPlatforms (annotationPlatforms);
+//    projectManager.setDatasetBuilder (builder);
+//    projectManager.setDimensionBuilder (dimensionBuilder);
+//    projectManager.setProbeAnnotationPlatforms (annotationPlatforms);
     return projectManager;
   }
 

@@ -79,8 +79,8 @@ public class AnnotationController extends WebApplicationObjectSupport {
   private @Inject Workspace workspace;
   private @Inject FileProjectManager projectManager;
   private @Inject DatasetBuilder datasetBuilder;
-  private @Inject Presets presets;
-  private @Inject ProbeAnnotationPlatforms probeAnnotationPlatforms;
+//  private @Inject Presets presets;
+//  private @Inject ProbeAnnotationPlatforms probeAnnotationPlatforms;
   
   @PostConstruct
   private void createRefineServlet () throws ServletException {
@@ -159,12 +159,12 @@ public class AnnotationController extends WebApplicationObjectSupport {
 
   }
 
-  @ResponseBody
-  @RequestMapping (method = { GET }, value = "/platforms/")
-  public List<ProbeAnnotationPlatform> platforms (HttpServletRequest request, HttpServletResponse response) throws ServletException,
-                                                                                   IOException {
-    return probeAnnotationPlatforms.getAll ();
-  }
+//  @ResponseBody
+//  @RequestMapping (method = { GET }, value = "/platforms/")
+//  public List<ProbeAnnotationPlatform> platforms (HttpServletRequest request, HttpServletResponse response) throws ServletException,
+//                                                                                   IOException {
+//    return probeAnnotationPlatforms.getAll ();
+//  }
 
   
   @RequestMapping (method = { GET, POST, PUT, DELETE }, value = "/openrefine/**")
@@ -181,26 +181,26 @@ public class AnnotationController extends WebApplicationObjectSupport {
     this.refineServlet.service (wrappedRequest, response);
   }
 
-  @RequestMapping (method = { GET, POST, PUT, DELETE }, value = "/import-dataset/**")
-  public void importDataset (@RequestParam (value = "import-preset", required = false) String presetName,
-                             HttpServletRequest request, HttpServletResponse response) throws ServletException,
-                                                                                      IOException,
-                                                                                      PresetNotFoundException {
-
-    HttpServletRequest wrappedRequest = new HttpServletRequestWrapper (request) {
-      @Override
-      public String getPathInfo () {
-        return super.getServletPath ().replace ("/annotations/import-dataset", "");
-      }
-    };
-
-    if (presetName != null && presetName.equals ("") == false) {
-      Preset preset = presets.get (presetName);
-      wrappedRequest.setAttribute ("descriptor", preset.descriptor ());
-      wrappedRequest.setAttribute ("preset", preset);
-    }
-    this.refineServlet.service (wrappedRequest, response);
-  }
+//  @RequestMapping (method = { GET, POST, PUT, DELETE }, value = "/import-dataset/**")
+//  public void importDataset (@RequestParam (value = "import-preset", required = false) String presetName,
+//                             HttpServletRequest request, HttpServletResponse response) throws ServletException,
+//                                                                                      IOException,
+//                                                                                      PresetNotFoundException {
+//
+//    HttpServletRequest wrappedRequest = new HttpServletRequestWrapper (request) {
+//      @Override
+//      public String getPathInfo () {
+//        return super.getServletPath ().replace ("/annotations/import-dataset", "");
+//      }
+//    };
+//
+//    if (presetName != null && presetName.equals ("") == false) {
+//      Preset preset = presets.get (presetName);
+//      wrappedRequest.setAttribute ("descriptor", preset.descriptor ());
+//      wrappedRequest.setAttribute ("preset", preset);
+//    }
+//    this.refineServlet.service (wrappedRequest, response);
+//  }
 
   @RequiredArgsConstructor
   private class ProjectIdDto{
